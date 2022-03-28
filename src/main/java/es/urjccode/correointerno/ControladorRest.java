@@ -5,6 +5,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,8 +17,10 @@ public class ControladorRest {
 
 
     @PostMapping("/correo")
-    public void postEnviarCorreo(@RequestBody String cuerpo) {
+    public void postEnviarCorreo(@RequestParam("contenido") String contenido,
+                                 @RequestParam("correo_destino") String correoDestino,
+                                 @RequestParam("nombre_remitente") String nombreRemitente) {
 
-        correoService.enviarCorreo(cuerpo, "serginmatonis@gmail.com", "asunto");
+        correoService.enviarCorreo(contenido, correoDestino, nombreRemitente);
     }
 }
