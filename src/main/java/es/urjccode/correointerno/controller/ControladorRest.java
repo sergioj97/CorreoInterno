@@ -1,9 +1,11 @@
-package es.urjccode.correointerno;
+package es.urjccode.correointerno.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import es.urjccode.correointerno.service.CorreoService;
 
 @RestController
 public class ControladorRest {
